@@ -109,28 +109,49 @@
 
   <div id="blessing"></div>
 
-  <script>
-    const blessings = [
-      "Bappa will remove all your obstacles and bring joy in all endeavours.",
-      "Ganesha will bless you with wisdom, knowledge, and clarity.",
-      "Blessings of peace, health, and prosperity flow to you.",
-      "Ganpati Bappa Morya! May success follow you everywhere.",
-      "With Ganesha’s blessings, may your home be filled with love and abundance.",
-      "Bappa will grant you focus and determination.",
-      "Ganpati Bappa will fulfill your wishes with his divine grace.",
-      "Ganesha will shower you with abundance and strength."
-    ];
+<script>
+const blessings = [
+  "Bappa will remove all your obstacles and bring joy in all endeavours.",
+  "Ganesha will bless you with wisdom, knowledge, and clarity.",
+  "Blessings of peace, health, and prosperity flow to you.",
+  "Ganpati Bappa Morya! May success follow you everywhere.",
+  "With Ganesha’s blessings, may your home be filled with love and abundance.",
+  "Bappa will grant you focus and determination.",
+  "Ganpati Bappa will fulfill your wishes with his divine grace.",
+  "Ganesha will shower you with abundance and strength."
+  // ...add more as you wish
+];
 
-    function revealBlessing(bgColor) {
-      const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
-      const blessingBox = document.getElementById("blessing");
-      blessingBox.innerText = randomBlessing;
-      blessingBox.style.display = "block";
-      blessingBox.style.background = bgColor;
-    }
-  </script>
+let blessingQueue = [];
+
+// Fisher-Yates Shuffle
+function shuffle(array) {
+  let arr = array.slice(); // Copy
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function getNextBlessing() {
+  if (blessingQueue.length === 0) {
+    blessingQueue = shuffle(blessings);
+  }
+  return blessingQueue.pop();
+}
+
+function revealBlessing(bgColor) {
+  const blessingBox = document.getElementById("blessing");
+  const blessing = getNextBlessing();
+  blessingBox.innerText = blessing;
+  blessingBox.style.display = "block";
+  blessingBox.style.background = bgColor;
+}
+</script>
 </body>
 </html>
+
 
 
 
