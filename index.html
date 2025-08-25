@@ -21,9 +21,11 @@
       margin-top: 20px;
     }
     .ganpati img {
-      max-width: 300px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      max-width: 200px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      background: #fff;
+      padding: 10px;
     }
     .modaks {
       display: flex;
@@ -37,14 +39,25 @@
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
     .modak:hover {
       transform: scale(1.1);
       box-shadow: 0 0 25px rgba(255, 165, 0, 0.7);
     }
-    .modak1 { background: no-repeat center/contain, #ffe4b5; }
-    .modak2 { background: no-repeat center/contain, #ffd700; }
-    .modak3 { background: no-repeat center/contain, #ffb6c1; }
+    .modak1 { background: #ffe4b5;}
+    .modak2 { background: #ffd700;}
+    .modak3 { background: #ffb6c1;}
+
+    .modak svg {
+      width: 60px;
+      height: 80px;
+      display: block;
+    }
 
     #blessing {
       margin-top: 40px;
@@ -54,24 +67,45 @@
       padding: 20px;
       border-radius: 12px;
       display: none;
-      background: #fff;
+      /* background set dynamically */
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.4s;
     }
-
-    
   </style>
 </head>
 <body>
   <h1>🙏 Choose a Modak to Receive Ganpati's Blessing 🙏</h1>
 
+  <!-- Ganpati Section with Image -->
   <div class="ganpati">
-    <img src="https://github.com/Soham1309/Bappa/blob/531b8fb42c999c901459b2a25fcee8f4c85fab84/Ganesha.png" alt="Ganpati" />
+    <img src="" alt="Ganpati" style="width:300px; height:600px; vertical-align:middle;"/>
   </div>
 
   <div class="modaks">
-    <div class="modak modak1" onclick="revealBlessing()"></div>
-    <div class="modak modak2" onclick="revealBlessing()"></div>
-    <div class="modak modak3" onclick="revealBlessing()"></div>
+    <!-- Modak 1 -->
+    <div class="modak modak1" onclick="revealBlessing('#ffe4b5')">
+      <!-- Modak SVG Icon 1 -->
+      <svg viewBox="0 0 64 80" fill="none" xmlns="https://github.com/Soham1309/Bappa/blob/2b9337ce06687c8dfaf70dfa13c8883ded11ce95/Creme%20Modak.png">
+        <ellipse cx="32" cy="60" rx="24" ry="18" fill="#e0b97d"/>
+        <path d="M32 6 C40 24, 64 40, 32 78 C0 40, 24 24, 32 6 Z" fill="#ffe4b5" stroke="#e0b97d" stroke-width="2"/>
+      </svg>
+    </div>
+    <!-- Modak 2 -->
+    <div class="modak modak2" onclick="revealBlessing('#ffd700')">
+      <!-- Modak SVG Icon 2 -->
+      <svg viewBox="0 0 64 80" fill="none" xmlns="https:https://github.com/Soham1309/Bappa/blob/480e45808e1f0e43089a28dd0ac11f4870e5a8fd/Yellow%20Modak.png">
+        <ellipse cx="32" cy="60" rx="24" ry="18" fill="#c2a600"/>
+        <path d="M32 6 C40 24, 64 40, 32 78 C0 40, 24 24, 32 6 Z" fill="#ffd700" stroke="#c2a600" stroke-width="2"/>
+      </svg>
+    </div>
+    <!-- Modak 3 -->
+    <div class="modak modak3" onclick="revealBlessing('#ffb6c1')">
+      <!-- Modak SVG Icon 3 -->
+      <svg viewBox="0 0 64 80" fill="none" xmlns="https://github.com/Soham1309/Bappa/blob/480e45808e1f0e43089a28dd0ac11f4870e5a8fd/Pink%20Modak.png">
+        <ellipse cx="32" cy="60" rx="24" ry="18" fill="#e49fb0"/>
+        <path d="M32 6 C40 24, 64 40, 32 78 C0 40, 24 24, 32 6 Z" fill="#ffb6c1" stroke="#e49fb0" stroke-width="2"/>
+      </svg>
+    </div>
   </div>
 
   <div id="blessing"></div>
@@ -88,22 +122,13 @@
       "Ganesha will shower you with abundance and strength."
     ];
 
-    function revealBlessing() {
+    function revealBlessing(bgColor) {
       const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
       const blessingBox = document.getElementById("blessing");
       blessingBox.innerText = randomBlessing;
       blessingBox.style.display = "block";
-      blessingBox.style.background = "#ffe4b5";
+      blessingBox.style.background = bgColor;
     }
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
