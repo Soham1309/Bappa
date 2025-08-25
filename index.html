@@ -69,7 +69,7 @@
   </div>
 
   <div class="modaks">
-    <div class="modak modak1" onclick="revealBlessing()" style="background: #ffe4b5;"></div>
+    <div class="modak modak1" onclick="revealBlessing()"></div>
     <div class="modak modak2" onclick="revealBlessing()"></div>
     <div class="modak modak3" onclick="revealBlessing()"></div>
   </div>
@@ -93,10 +93,12 @@
       const blessingBox = document.getElementById("blessing");
       blessingBox.innerText = randomBlessing;
       blessingBox.style.display = "block";
+      blessingBox.style.background = "#ffe4b5";
     }
   </script>
 </body>
 </html>
+
 
 
 
