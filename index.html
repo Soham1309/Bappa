@@ -24,7 +24,6 @@
       max-width: 300px;
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      img src="https://github.com/Soham1309/Bappa/blob/531b8fb42c999c901459b2a25fcee8f4c85fab84/Ganesha.png" 
     }
     .modaks {
       display: flex;
@@ -43,9 +42,9 @@
       transform: scale(1.1);
       box-shadow: 0 0 25px rgba(255, 165, 0, 0.7);
     }
-    .modak1 { background: url('https://github.com/Soham1309/Bappa/blob/2b9337ce06687c8dfaf70dfa13c8883ded11ce95/Creme%20Modak.png') no-repeat center/contain, #FFFFFF; }
-    .modak2 { background: url('https:https://github.com/Soham1309/Bappa/blob/480e45808e1f0e43089a28dd0ac11f4870e5a8fd/Yellow%20Modak.png') no-repeat center/contain, #ffd700; }
-    .modak3 { background: url('https://github.com/Soham1309/Bappa/blob/480e45808e1f0e43089a28dd0ac11f4870e5a8fd/Pink%20Modak.png') no-repeat center/contain, #ffb6c1; }
+    .modak1 { background: no-repeat center/contain, #ffe4b5; }
+    .modak2 { background: no-repeat center/contain, #ffd700; }
+    .modak3 { background: no-repeat center/contain, #ffb6c1; }
 
     #blessing {
       margin-top: 40px;
@@ -55,9 +54,11 @@
       padding: 20px;
       border-radius: 12px;
       display: none;
-      background: #FFE7DC;
+      background: #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+
+    
   </style>
 </head>
 <body>
@@ -68,7 +69,7 @@
   </div>
 
   <div class="modaks">
-    <div class="modak modak1" onclick="revealBlessing()"></div>
+    <div class="modak modak1" onclick="revealBlessing(); background-color: #ffe4b5"></div>
     <div class="modak modak2" onclick="revealBlessing()"></div>
     <div class="modak modak3" onclick="revealBlessing()"></div>
   </div>
@@ -84,8 +85,7 @@
       "With Ganesha’s blessings, may your home be filled with love and abundance.",
       "Bappa will grant you focus and determination.",
       "Ganpati Bappa will fulfill your wishes with his divine grace.",
-      "Ganesha will shower you with abundance and strength.",
-      ""
+      "Ganesha will shower you with abundance and strength."
     ];
 
     function revealBlessing() {
@@ -97,6 +97,7 @@
   </script>
 </body>
 </html>
+
 
 
 
