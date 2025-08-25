@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bappa's House of Blessings!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #fdf6e3, #fbeec1);
+      color: #333;
+    }
+    h1 {
+      margin-top: 20px;
+      font-size: 1.8rem;
+      color: #b45309;
+    }
+    .ganpati {
+      margin-top: 20px;
+    }
+    .ganpati img {
+      max-width: 300px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .modaks {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .modak {
+      width: 100px;
+      height: 120px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 12px;
+    }
+    .modak:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 165, 0, 0.7);
+    }
+    .modak1 { background: url('https://i.ibb.co/qmNL0kT/modak.png') no-repeat center/contain, #ffe4b5; }
+    .modak2 { background: url('https://i.ibb.co/qmNL0kT/modak.png') no-repeat center/contain, #ffd700; }
+    .modak3 { background: url('https://i.ibb.co/qmNL0kT/modak.png') no-repeat center/contain, #ffb6c1; }
+
+    #blessing {
+      margin-top: 40px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #92400e;
+      padding: 20px;
+      border-radius: 12px;
+      display: none;
+      background: #fff8dc;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🙏 Choose a Modak to Receive Ganpati's Blessing 🙏</h1>
+
+  <div class="ganpati">
+    <img src="/mnt/data/A_photograph_of_a_Ganesh_statue_depicts_Lord_Ganes.png" alt="Ganpati" />
+  </div>
+
+  <div class="modaks">
+    <div class="modak modak1" onclick="revealBlessing()"></div>
+    <div class="modak modak2" onclick="revealBlessing()"></div>
+    <div class="modak modak3" onclick="revealBlessing()"></div>
+  </div>
+
+  <div id="blessing"></div>
+
+  <script>
+    const blessings = [
+      "Bappa will remove all your obstacles and bring joy in all endeavours.",
+      "Ganesha will bless you with wisdom, knowledge, and clarity.",
+      "Blessings of peace, health, and prosperity flow to you.",
+      "Ganpati Bappa Morya! May success follow you everywhere.",
+      "With Ganesha’s blessings, may your home be filled with love and abundance."
+    ];
+
+    function revealBlessing() {
+      const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
+      const blessingBox = document.getElementById("blessing");
+      blessingBox.innerText = randomBlessing;
+      blessingBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>
