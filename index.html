@@ -5,29 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bappa's House of Blessings!</title>
   <style>
-    body 
-{
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  background: linear-gradient(135deg, #fdf6e3, #fbeec1);
-  color: #333;
-  background-image: url('https://github.com/Soham1309/Bappa/blob/1b8b85dc728a5299626a8a3c5a37fb82f6de909e/Background.png?raw=true');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #333;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* Default: Portrait background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, #fdf6e3, #fbeec1);
+      background-image: url('https://github.com/Soham1309/Bappa/blob/1b8b85dc728a5299626a8a3c5a37fb82f6de909e/Background.png?raw=true');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      transition: background-image 0.4s;
+    }
+    /* On desktop & landscape: use different background image */
+    @media (min-width: 768px), (orientation: landscape) {
+      body::before {
+        background-image: url('https://github.com/Soham1309/Bappa/blob/main/Landscape%20Background.png?raw=true');
+      }
+    }
     h1 {
       margin-top: 20px;
-      font-size: 1.6rem;
-      color: #b45309;
+      font-size: 2.2rem;
+      color: #fff;
+      letter-spacing: 2px;
+      -webkit-text-stroke: 1.5px #000;   /* thin black border for clarity */
+      text-stroke: 1.5px #000;           /* fallback for some browsers */
+      /* Removed glow and animation for clarity */
+      transition: text-shadow 0.3s;
     }
     .ganpati {
       margin-top: 0px;
     }
     .ganpati img {
-      
-      max-width: 2000px;
+      width: 204.8px;
+      height: 307.2px;
+      vertical-align: middle;
+      display: block;
+      margin: 0 auto;
     }
     .modaks {
       display: flex;
@@ -46,6 +70,9 @@
       justify-content: center;
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      background: transparent;
+      padding: 0;
+      border: none;
     }
     .modak:hover {
       transform: scale(1.1);
@@ -54,13 +81,11 @@
     .modak1 { background: #ffe4b5;}
     .modak2 { background: #ffd700;}
     .modak3 { background: #ffb6c1;}
-
-    .modak svg {
-      width: 60px;
-      height: 80px;
-      display: block;
+    .modak img {
+      width: 100px;
+      height: 100px;
+      vertical-align: middle;
     }
-
     #blessing {
       margin-top: 40px;
       font-size: 1.4rem;
@@ -77,41 +102,25 @@
 </head>
 <body>
   <h1>🙏 Choose a Modak to Receive Ganpati's Blessing 🙏</h1>
-
   <!-- Ganpati Section with Image -->
   <div class="ganpati">
-    <img src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Ganesha.png?raw=true" alt="Ganpati" style="width:204.8px; height:307.2px; vertical-align:middle;"/>
+    <img src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Ganesha.png?raw=true" alt="Ganpati" />
   </div>
-
   <div class="modaks">
     <!-- Modak 1 -->
     <div class="modak modak1" onclick="revealBlessing('#ffe4b5')">
-      <!-- Modak SVG Icon 1 -->
-      <img viewBox="0 0 64 80" fill="none" src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Creme%20Modak.png?raw=true" alt="Creme" style="width:100px; height:100px; vertical-align:middle;">
-    <!--     <ellipse cx="32" cy="60" rx="24" ry="18" fill="#e0b97d"/>
-        <path d="M32 6 C40 24, 64 40, 32 78 C0 40, 24 24, 32 6 Z" fill="#ffe4b5" stroke="#e0b97d" stroke-width="2"/>   -->
-      </img>
+      <img src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Creme%20Modak.png?raw=true" alt="Creme Modak">
     </div>
     <!-- Modak 2 -->
     <div class="modak modak2" onclick="revealBlessing('#ffd700')">
-      <!-- Modak SVG Icon 2 -->
-      <img viewBox="0 0 64 80" fill="none" src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Yellow%20Modak.png?raw=true" alt="Yellow" style="width:100px; height:100px; vertical-align:middle;">
-        <ellipse cx="32" cy="60" rx="24" ry="18" fill="#c2a600"/>
-        <path d="M32 6 C40 24, 64 40, 32 78 C0 40, 24 24, 32 6 Z" fill="#ffd700" stroke="#c2a600" stroke-width="2"/>
-      </img>
+      <img src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Yellow%20Modak.png?raw=true" alt="Yellow Modak">
     </div>
     <!-- Modak 3 -->
     <div class="modak modak3" onclick="revealBlessing('#ffb6c1')">
-      <!-- Modak SVG Icon 3 -->
-      <img viewBox="0 0 64 80" fill="none" src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Pink%20Modak.png?raw=true" alt="Pink" style="width:100px; height:100px; vertical-align:middle;">
-        <ellipse cx="32" cy="60" rx="24" ry="18" fill="#e49fb0"/>
-        <path d="M32 6 C40 24, 64 40, 32 78 C0 40, 24 24, 32 6 Z" fill="#ffb6c1" stroke="#e49fb0" stroke-width="2"/>
-      </img>
+      <img src="https://github.com/Soham1309/Bappa/blob/1e712c5ce0d553ae39033b89d7860f3b4fd65859/Pink%20Modak.png?raw=true" alt="Pink Modak">
     </div>
   </div>
-
   <div id="blessing"></div>
-
 <script>
 const blessings = [
   "Bappa will remove all your obstacles and bring joy in all endeavours.",
@@ -124,26 +133,21 @@ const blessings = [
   "Ganesha will shower you with abundance and strength."
   // ...add more as you wish
 ];
-
 let blessingQueue = [];
-
-// Fisher-Yates Shuffle
 function shuffle(array) {
-  let arr = array.slice(); // Copy
+  let arr = array.slice();
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
 }
-
 function getNextBlessing() {
   if (blessingQueue.length === 0) {
     blessingQueue = shuffle(blessings);
   }
   return blessingQueue.pop();
 }
-
 function revealBlessing(bgColor) {
   const blessingBox = document.getElementById("blessing");
   const blessing = getNextBlessing();
@@ -154,11 +158,3 @@ function revealBlessing(bgColor) {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
